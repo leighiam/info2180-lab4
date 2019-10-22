@@ -9,39 +9,12 @@ function start (){
     }
     //const playArray = new Array();
     play_game();
+    active_square();
     //console.log(playArray);
 }
 window.onload = start;
 
 
-
-/*function play(){
-    let makePlay = document.getElementById("board").querySelectorAll('.square');
-    for(let i = 0; i < makePlay.length; i++)
-    {
-        if(playArray.length === 0)
-        {
-            makePlay[i].innerHTML = "X";
-            makePlay[i].setAttribute("class","X");
-            playArray.push('X');
-        }
-        else
-        {
-            if(playArray[playArray.length-1] === 'X')
-            {
-                makePlay[i].innerHTML = "O";
-                makePlay[i].setAttribute("class","O");
-                playArray.push('O');
-            }
-            else if(playArray[playArray.length-1] === 'O')
-            {
-                makePlay[i].innerHTML = "X";
-                makePlay[i].setAttribute("class","X");
-                playArray.push('X');
-            }
-        }
-    }
-}*/
 let playArray = new Array();
 function play_game()
 {
@@ -76,5 +49,22 @@ function play_game()
     }
 }
 
+function active_square()
+{
+    let current_square = document.querySelectorAll('.square');
+    for(let i = 0; i < current_square.length; i++)
+    {
+        
+        current_square[i].addEventListener("mouseover", function()
+        {
+            current_square[i].classList.add("hover");
+        });
+        current_square[i].addEventListener("mouseout", function()
+        {
+            current_square[i].classList.remove("hover");
+        });
+    }
+}
+
 //play_game();
-console.log(playArray);
+//console.log(playArray);
