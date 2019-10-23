@@ -32,14 +32,14 @@ function play_game()
             }
             else
             {
-                if(playArray[playArray.length-1] === 'X')
+                if(playArray[playArray.length-1] === 'X' && makePlay[i].innerHTML === "")
                 {
                     makePlay[i].classList.add("square","O");
                     makePlay[i].innerHTML = "O";
                     //makePlay[i].setAttribute("class","O");
                     playArray.push('O');
                 }
-                else if(playArray[playArray.length-1] === 'O')
+                else if(playArray[playArray.length-1] === 'O' && makePlay[i].innerHTML === "")
                 {
                     makePlay[i].classList.add("square","X");
                     makePlay[i].innerHTML = "X";
@@ -183,6 +183,8 @@ function new_game(gameboard)
                 gameboard[i].classList.remove("O");
             }
         }
+        document.querySelector("#status").classList.remove("you-won");
+        document.querySelector("#status").innerHTML = "Move your mouse over a square and click to play an X or an O.";
     } 
 }
 //play_game();
