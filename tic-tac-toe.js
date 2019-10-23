@@ -5,7 +5,7 @@ function start (){
     let drawBoard = document.getElementById("board").children;
     for(let i = 0; i < drawBoard.length; i++)
     {
-        drawBoard[i].setAttribute("class", "square");
+        drawBoard[i].classList.add("square");
         //console.log(drawBoard[i].innerHTML);
     }
     //const playArray = new Array();
@@ -47,8 +47,10 @@ function play_game()
                     playArray.push('X');
                 }
             }winner();
+            //new_game(makePlay);
         }
-    }
+
+    }new_game(makePlay);
 }
 
 function active_square()
@@ -163,5 +165,25 @@ function winner()
     }
 }
 
+function new_game(gameboard)
+{
+    document.querySelector(".btn").onclick = function()
+    {
+        for(let i = 0; i < gameboard.length; i++)
+        {
+            //gameboard[i].innerHTML = "";
+            if(gameboard[i].innerHTML === "X")
+            {
+                gameboard[i].innerHTML = "";
+                gameboard[i].classList.remove("X");
+            }
+            else if(gameboard[i].innerHTML === "O")
+            {
+                gameboard[i].innerHTML = "";
+                gameboard[i].classList.remove("O");
+            }
+        }
+    } 
+}
 //play_game();
 //console.log(playArray);
